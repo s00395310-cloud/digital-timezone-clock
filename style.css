@@ -1,0 +1,117 @@
+:root {
+  --bg: #0b1020;
+  --bg-strong: #111827;
+  --panel: rgba(17, 24, 39, 0.9);
+  --panel-alt: rgba(31, 41, 55, 0.95);
+  --border: rgba(148, 163, 184, 0.2);
+  --text: #e5eefb;
+  --muted: #9fb0c8;
+  --accent: #64d2ff;
+  --accent-2: #8b5cf6;
+  --success: #34d399;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Inter, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(100, 210, 255, 0.2), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.15), transparent 25%),
+    var(--bg);
+  color: var(--text);
+}
+
+.app {
+  width: min(1100px, calc(100% - 2rem));
+  padding: 2rem 1rem 3rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.22rem;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.clock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.clock-card {
+  background: linear-gradient(180deg, var(--panel), var(--panel-alt));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.15rem 1rem 1rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.32);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.clock-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(100, 210, 255, 0.5);
+}
+
+.city {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+
+.time {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.date {
+  margin-top: 0.9rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.offset {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .app {
+    padding-top: 1.5rem;
+  }
+
+  .clock-grid {
+    grid-template-columns: 1fr;
+  }
+}
